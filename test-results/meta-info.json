@@ -1,0 +1,14 @@
+{
+  "reports": [
+    {
+      "name": "Default suite",
+      "dir": "test-results/Fri16Mar18_0133AM",
+      "startTime": 1521144183884
+    },
+    {
+      "name": "Web Demo Suite",
+      "dir": "test-results/Fri16Mar18_0122AM",
+      "startTime": 1521143568536
+    }
+  ]
+}

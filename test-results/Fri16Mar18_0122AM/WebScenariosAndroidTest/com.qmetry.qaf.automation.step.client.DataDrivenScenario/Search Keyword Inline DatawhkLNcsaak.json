@@ -1,0 +1,132 @@
+{
+  "seleniumLog": [
+    {
+      "commandName": "I_am_on_Google_Search_Page",
+      "args": [
+        "[]"
+      ],
+      "result": "success",
+      "subLogs": [
+        {
+          "commandName": "get",
+          "args": [
+            "{url=http://www.google.com/}"
+          ],
+          "result": "",
+          "subLogs": [],
+          "duration": 1509
+        }
+      ],
+      "duration": -1
+    },
+    {
+      "commandName": "I_search_for",
+      "args": [
+        "[Project-Quantum Quantum-Starter-Kit]"
+      ],
+      "result": "fail",
+      "subLogs": [
+        {
+          "commandName": "findElement",
+          "args": [
+            "{value=q, using=name}"
+          ],
+          "result": "id: {ae2063b3-4a9a-4db8-943b-fc20c8eb055e}",
+          "subLogs": [],
+          "duration": 151
+        },
+        {
+          "commandName": "clearElement",
+          "args": [
+            "By.name: q",
+            "{\"id\":\"{ae2063b3-4a9a-4db8-943b-fc20c8eb055e}\"}"
+          ],
+          "result": "clearElement:",
+          "subLogs": [],
+          "duration": 50
+        },
+        {
+          "commandName": "findElement",
+          "args": [
+            "{value=q, using=name}"
+          ],
+          "result": "id: {ae2063b3-4a9a-4db8-943b-fc20c8eb055e}",
+          "subLogs": [],
+          "duration": 29
+        },
+        {
+          "commandName": "sendKeysToElement",
+          "args": [
+            "By.name: q",
+            "{\"id\":\"{ae2063b3-4a9a-4db8-943b-fc20c8eb055e}\",\"value\":[\"Project-Quantum Quantum-Starter-Kit\"]}"
+          ],
+          "result": "sendKeysToElement:",
+          "subLogs": [],
+          "duration": 204
+        },
+        {
+          "commandName": "findElement",
+          "args": [
+            "{value=btnG, using=name}"
+          ],
+          "result": "id: {4cd49e52-fbca-432d-8522-3599759441e9}",
+          "subLogs": [],
+          "duration": 30
+        },
+        {
+          "commandName": "clickElement",
+          "args": [
+            "By.name: btnG",
+            "{\"id\":\"{4cd49e52-fbca-432d-8522-3599759441e9}\"}"
+          ],
+          "result": "Element is not currently visible and so may not be interacted with\nCommand duration or timeout: 30 milliseconds\nBuild info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'\nSystem info: host: 'LAPTOP-02H2H77P', ip: '192.168.1.100', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_151'\nDriver info: com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebDriver\nCapabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]\nSession ID: 5e3dcc47-684d-4396-8995-8ae9fe058ce0",
+          "subLogs": [],
+          "duration": 30
+        }
+      ],
+      "duration": -1
+    },
+    {
+      "commandName": "Then it should have \"${searchResult}\" in search results",
+      "args": [
+        "[GitHub]"
+      ],
+      "result": "Not Run",
+      "subLogs": [],
+      "duration": -1
+    }
+  ],
+  "checkPoints": [
+    {
+      "message": "Given I am on Google Search Page",
+      "type": "TestStepPass",
+      "duration": 1510,
+      "threshold": 0,
+      "subCheckPoints": []
+    },
+    {
+      "message": "When I search for \"Project-Quantum Quantum-Starter-Kit\"",
+      "type": "TestStepFail",
+      "screenshot": "img/Search Keyword Inline Data_ryp8qavc1ow643906.png",
+      "duration": 499,
+      "threshold": 0,
+      "subCheckPoints": [
+        {
+          "message": "Element is not currently visible and so may not be interacted with\nCommand duration or timeout: 30 milliseconds\nBuild info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'\nSystem info: host: 'LAPTOP-02H2H77P', ip: '192.168.1.100', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_151'\nDriver info: com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebDriver\nCapabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]\nSession ID: 5e3dcc47-684d-4396-8995-8ae9fe058ce0",
+          "type": "Fail",
+          "duration": 0,
+          "threshold": 0,
+          "subCheckPoints": []
+        }
+      ]
+    },
+    {
+      "message": "Then it should have \"${searchResult}\" in search results",
+      "type": "TestStep",
+      "duration": 0,
+      "threshold": 0,
+      "subCheckPoints": []
+    }
+  ],
+  "errorTrace": "org.openqa.selenium.ElementNotVisibleException: Element is not currently visible and so may not be interacted with\nCommand duration or timeout: 30 milliseconds\nBuild info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'\nSystem info: host: 'LAPTOP-02H2H77P', ip: '192.168.1.100', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_151'\nDriver info: com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebDriver\nCapabilities [{applicationCacheEnabled=true, rotatable=false, handlesAlerts=true, databaseEnabled=true, version=46.0, platform=WINDOWS, nativeEvents=false, acceptSslCerts=true, webStorageEnabled=true, locationContextEnabled=true, browserName=firefox, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]\nSession ID: 5e3dcc47-684d-4396-8995-8ae9fe058ce0\r\n\tat .When I search for \"${searchKey}\"(src/main/resources/scenarios/webSearch.feature:22)\r\n\tat org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:206)\r\n\tat org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:158)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:678)\r\n\tat com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebDriver.executeWitoutLog(QAFExtendedWebDriver.java:256)\r\n\tat com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement.execute(QAFExtendedWebElement.java:252)\r\n\tat org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:85)\r\n\tat com.quantum.steps.GoogleStepDefs.I_search_for(GoogleStepDefs.java:25)\r\n\tat com.qmetry.qaf.automation.step.JavaStep.doExecute(JavaStep.java:160)\r\n\tat com.qmetry.qaf.automation.step.BaseTestStep.execute(BaseTestStep.java:149)\r\n\tat com.qmetry.qaf.automation.step.StringTestStep.execute(StringTestStep.java:134)\r\n\tat com.qmetry.qaf.automation.step.client.Scenario.execute(Scenario.java:167)\r\n\tat com.qmetry.qaf.automation.step.client.DataDrivenScenario.scenario(DataDrivenScenario.java:95)\r\n\tat java.util.concurrent.FutureTask.run(Unknown Source)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)\r\n\tat java.lang.Thread.run(Unknown Source)\r\nCaused by: org.openqa.selenium.ElementNotVisibleException: Element is not currently visible and so may not be interacted with\nBuild info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'\nSystem info: host: 'LAPTOP-02H2H77P', ip: '192.168.1.100', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_151'\nDriver info: driver.version: unknown\r\n\tat <anonymous class>.fxdriver.preconditions.visible(file:///C:/Users/kumar/AppData/Local/Temp/anonymous3683980411394959845webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:10092)\r\n\tat <anonymous class>.DelayedCommand.prototype.checkPreconditions_(file:///C:/Users/kumar/AppData/Local/Temp/anonymous3683980411394959845webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12644)\r\n\tat <anonymous class>.DelayedCommand.prototype.executeInternal_/h(file:///C:/Users/kumar/AppData/Local/Temp/anonymous3683980411394959845webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12661)\r\n\tat <anonymous class>.DelayedCommand.prototype.executeInternal_(file:///C:/Users/kumar/AppData/Local/Temp/anonymous3683980411394959845webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12666)\r\n\tat <anonymous class>.DelayedCommand.prototype.execute/<(file:///C:/Users/kumar/AppData/Local/Temp/anonymous3683980411394959845webdriver-profile/extensions/fxdriver@googlecode.com/components/command-processor.js:12608)\r\n"
+}

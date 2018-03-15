@@ -1,0 +1,89 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="web Demo Suite" parallel="none" thread-count="5">
+    
+
+   <test name="Omm-Model-Chrome Browser" enabled="false" 
+	thread-count="100">
+
+
+		<parameter name="driver.name" value="ChromeDriver"></parameter>
+
+		<parameter name="webdriver.chrome.driver" value="F:\\Quantum-Starter-Kit-master\\driver\\chromedriver.exe"></parameter>
+
+		<groups>
+
+			<run>
+
+				<include name="@navigate_to_flipkart_home_page"/>
+
+			</run>
+
+		</groups>
+
+		<classes>
+
+			<class
+
+				name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory" />
+
+		</classes>
+
+	</test>
+	
+    <test name="pssss-uhh geko Browser" enabled="true" thread-count="100">
+    
+    <parameter name="driver.name" value="FirefoxDriver"></parameter>
+
+		<parameter name="webdriver.chrome.driver" value="F:\\Quantum-Starter-Kit-master\\driver\\geckodriver.exe"></parameter>
+
+    <groups>
+
+			<run>
+
+				<include name="@navigate_to_flipkart_home_page" />
+
+			</run>
+
+		</groups>
+
+		<classes>
+
+			<class
+
+				name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory" />
+
+		</classes>
+     </test>
+     
+     <test name="Omm- Model-Chrome Browser" enabled="false" 
+	thread-count="100">
+
+
+		<parameter name="driver.name" value="InternetExplorer"></parameter>
+
+		<parameter name="webdriver.ie.driver" value="F:\\Quantum-Starter-Kit-master\\driver\\IEDriverServer.exe"></parameter>
+
+		<groups>
+
+			<run>
+
+				<include name="@navigate_to_flipkart_home_page"/>
+
+			</run>
+
+		</groups>
+
+		<classes>
+
+			<class
+
+				name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory" />
+
+		</classes>
+
+	</test>
+</suite>
+
+ 
+
+ 

@@ -1,0 +1,17 @@
+#locator repository for search page
+search.text.box = {\"locator\":\"name=q\",\"desc\":\"Search Text Box\"}
+search.button = {\"locator\":\"name=btnG\",\"desc\":\"Search Button\"}
+
+
+#locator for facebook
+
+facebook.Usernamefield = xpath=.//input[@id='email']
+
+facebook.Passwordfield = xpath=.//input[@id='pass']
+
+facebook.LoginButton = xpath= xpath=.//input[@value='Log In']
+
+
+#Flipkartlocator
+
+careerflipkart=xpath=//a[text()='Careers']
