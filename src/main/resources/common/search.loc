@@ -15,3 +15,6 @@ facebook.LoginButton = xpath= xpath=.//input[@value='Log In']
 #Flipkartlocator
 
 careerflipkart=xpath=//a[text()='Careers']
+
+#AmazonLocator
+careeramazon=xpath=//a[.='Careers']

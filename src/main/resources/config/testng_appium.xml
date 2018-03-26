@@ -1,20 +1,21 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="web Demo Suite" parallel="none" thread-count="5">
+<suite name="web Demo Suite" parallel="true" thread-count="5">
     
 
-   <test name="Omm-Model-Chrome Browser" enabled="false" 
+   <test name="Omm-Model-Chrome Browser" enabled="true" 
 	thread-count="100">
 
 
 		<parameter name="driver.name" value="ChromeDriver"></parameter>
 
-		<parameter name="webdriver.chrome.driver" value="F:\\Quantum-Starter-Kit-master\\driver\\chromedriver.exe"></parameter>
+		<parameter name="webdriver.chrome.driver" value="C:\\Users\\kumar\\Desktop\\QuantumFrameprac\\trunk\\driver\\chromedriver.exe"></parameter>
 
 		<groups>
 
 			<run>
 
-				<include name="@navigate_to_flipkart_home_page"/>
+				<include name="@amazonhome"/>
+			
 
 			</run>
 
@@ -30,11 +31,11 @@
 
 	</test>
 	
-    <test name="pssss-uhh geko Browser" enabled="true" thread-count="100">
+    <test name="pssss-uhh geko Browser" enabled="false" thread-count="100">
     
     <parameter name="driver.name" value="FirefoxDriver"></parameter>
 
-		<parameter name="webdriver.chrome.driver" value="F:\\Quantum-Starter-Kit-master\\driver\\geckodriver.exe"></parameter>
+		<parameter name="webdriver.chrome.driver" value="C:\\Users\\kumar\\Desktop\\QuantumFrameprac\\trunk\\driver\\geckodriver.exe"></parameter>
 
     <groups>
 
@@ -61,7 +62,7 @@
 
 		<parameter name="driver.name" value="InternetExplorer"></parameter>
 
-		<parameter name="webdriver.ie.driver" value="F:\\Quantum-Starter-Kit-master\\driver\\IEDriverServer.exe"></parameter>
+		<parameter name="webdriver.ie.driver" value="C:\\Users\\kumar\\Desktop\\QuantumFrameprac\\trunk\\driver\\IEDriverServer.exe"></parameter>
 
 		<groups>
 
