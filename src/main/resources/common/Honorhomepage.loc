@@ -1,0 +1,8 @@
+#For brandname
+
+brandnameclick=xpath=//span[text()='BRAND']
+
+
+#Huawei logout
+
+Huaweilogout=xpath=(//a[text()='Logout'])[2]
