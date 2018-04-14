@@ -1,0 +1,529 @@
+
+
+
+
+	@FindBy(locator = "Bene.SpousalConsent")
+	private QAFWebElement SpousalConsent;
+
+	public QAFWebElement getSpousalConsent() {
+		return SpousalConsent;
+	}
+
+	@FindBy(locator = "Bene.AdvisroryBlurb")
+	private QAFWebElement HeaderOne;
+
+	public QAFWebElement getHeaderOne() {
+		return HeaderOne;
+	}
+
+	public QAFWebElement getHeaderTwo() {
+		return HeaderTwo;
+	}
+
+	public QAFWebElement getHeaderThree() {
+		return HeaderThree;
+	}
+
+	@FindBy(locator = "Bene.HeaderText1")
+	private QAFWebElement HeaderTwo;
+
+	@FindBy(locator = "Bene.HeaderText2")
+	private QAFWebElement HeaderThree;
+
+	@FindBy(locator = "Bene.month.Page")
+	private QAFWebElement BeneMonth;
+	@FindBy(locator = "Bene.ErrorMsg.Page")
+	private QAFWebElement ErrorMsg;
+
+	@FindBy(locator = "Bene.ErrorMsg.Page")
+	private List<QAFWebElement> ErrorMsgall;
+
+	public QAFWebElement getErrorMsg() {
+		return ErrorMsg;
+	}
+
+	@FindBy(locator = "Bene.Married")
+	private QAFWebElement Married;
+
+	public QAFWebElement getMarried() {
+		return Married;
+	}
+
+	public QAFWebElement getNotMarried() {
+		return NotMarried;
+	}
+
+	@FindBy(locator = "Bene.Notmarried")
+	private QAFWebElement NotMarried;
+
+	@FindBy(locator = "Bene.Day.Page")
+	private QAFWebElement BeneDay;
+
+	public QAFWebElement getBeneMonth() {
+		return BeneMonth;
+	}
+
+	public QAFWebElement getBeneDay() {
+		return BeneDay;
+	}
+
+	public QAFWebElement getBeneYear() {
+		return BeneYear;
+	}
+
+	@FindBy(locator = "Bene.Year.Page")
+	private QAFWebElement BeneYear;
+	@FindBy(locator = "Bene.ManaeBeneLink.Page")
+	private QAFWebElement ManaeBeneLink;
+
+	public QAFWebElement getManaeBeneLink() {
+		return ManaeBeneLink;
+	}
+
+	public void enterValuestoField(String fieldName, String InputValues) {
+		Log.info("Bene Page Operations Started");
+		Log.info("Entering " + InputValues + " to " + fieldName + "");
+		try {
+			CommonUtilities.typeTextToTextBox(
+					webDriver.findElementByXPath(".//label[contains(text(),'" + fieldName + "')]/preceding::input[1]"),
+					InputValues);
+			CommonUtilities.wait(1);
+			CommonUtilities.FocusOutfromtextBox(
+					webDriver.findElementByXPath(".//label[contains(text(),'" + fieldName + "')]/preceding::input[1]"));
+			CommonUtilities.wait(1);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Log.info("Bene Page Operations Completed");
+	}
+
+	public void NageativeFiledValidationswith(String fieldName, String InputValues) {
+		Log.info("Bene Page Operations Started");
+		Log.info("Entering " + InputValues + " to " + fieldName + "");
+		try {
+			CommonUtilities.typeTextToTextBox(
+					webDriver.findElementByXPath(".//label[contains(text(),'" + fieldName + "')]/preceding::input[1]"),
+					InputValues);
+			CommonUtilities.wait(1);
+			CommonUtilities.FocusOutfromtextBox(
+					webDriver.findElementByXPath(".//label[contains(text(),'" + fieldName + "')]/preceding::input[1]"));
+			CommonUtilities.wait(1);
+
+			String Value = webDriver
+					.findElementByXPath(".//label[contains(text(),'" + fieldName + "')]/preceding::input[1]")
+					.getAttribute("value");
+			try {
+				if (Value == null) {
+					System.out.println("Passed : Not able to enter" + InputValues);
+				}
+			} catch (Exception e) {
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		Log.info("Bene Page Operations Completed");
+	}
+
+	public void PositiveFiledValidationswith(String fieldName, String InputValues) {
+		Log.info("Bene Page Operations Started");
+		Log.info("Entering " + InputValues + " to " + fieldName + "");
+		try {
+			CommonUtilities.typeTextToTextBox(
+					webDriver.findElementByXPath(".//label[contains(text(),'" + fieldName + "')]/preceding::input[1]"),
+					InputValues);
+			CommonUtilities.wait(1);
+			CommonUtilities.FocusOutfromtextBox(
+					webDriver.findElementByXPath(".//label[contains(text(),'" + fieldName + "')]/preceding::input[1]"));
+			CommonUtilities.wait(1);
+
+			String Value = webDriver
+					.findElementByXPath(".//label[contains(text(),'" + fieldName + "')]/preceding::input[1]")
+					.getAttribute("value");
+			System.err.println(Value);
+			try {
+				if (Value.equals(InputValues)) {
+					System.out.println("Passed : text bos is accpeting expected values : " + InputValues);
+				} else {
+					throw new Exception(" Failed : text bos is accpeting expected values : " + InputValues);
+				}
+			} catch (Exception e) {
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		Log.info("Bene Page Operations Completed");
+	}
+
+	public void selectDropdown(String DropDownName, String Value) {
+		Log.info("Bene Page Operations Started");
+		Log.info("Selecting" + Value + " from " + DropDownName + "dropdown");
+		try {
+			DropDownName = DropDownName.toLowerCase();
+			CommonUtilities.click(
+					webDriver.findElementByXPath(".//lfg-rwd-custom-dropdownn[contains(@id,'" + DropDownName + "')]"));
+			List<QAFWebElement> allvalues = webDriver
+					.findElements(".//lfg-rwd-custom-dropdownn[contains(@id,'" + DropDownName + "')]/div/ul/li");
+
+			for (int i = 0; i < allvalues.size(); i++) {
+				QAFWebElement Cele = allvalues.get(i);
+				String str = Cele.getText();
+				System.err.println(str);
+				if (str.equals(Value)) {
+					CommonUtilities.click(Cele);
+					break;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Log.info("Bene Page Operations Completed");
+	}
+
+	public void SelectWrongDOB() {
+		Log.info("Bene Page Operations Started");
+		Log.info("DOB Selections");
+		int Year1 = LocalDate.now().getYear();
+		String Year = "" + Year1 + "";
+		Year.trim();
+		String month = LocalDate.now().getMonth().toString();
+		int d = LocalDate.now().getDayOfMonth() + 1;
+		String unpadded = "" + d + "";
+		String day = "00".substring(unpadded.length()) + unpadded;
+
+		if (d > 31) {
+			month = LocalDate.now().plusMonths(1).getMonth().toString();
+		}
+		System.err.println(Year + month + day);
+		try {
+
+			CommonUtilities.JseClick(getBeneYear());
+			CommonUtilities.wait(2);
+			CommonUtilities.validateElementDisplayed(getValues());
+			CommonUtilities.ExplicitWaitForVisiBility("//li[@class='ng-binding ng-scope disp-blk']");
+			List<QAFWebElement> allvalues = webDriver.findElements("//li[@class='ng-binding ng-scope disp-blk']");
+			System.out.println(allvalues);
+			for (int i = 0; i < allvalues.size(); i++) {
+				QAFWebElement Cele = allvalues.get(i);
+				String str = Cele.getText();
+				str.trim();
+				System.err.println(str);
+				if (str.equals(Year)) {
+					CommonUtilities.click(Cele);
+					break;
+				}
+			}
+			CommonUtilities.JseClick(getBeneMonth());
+			CommonUtilities.wait(2);
+			CommonUtilities.ExplicitWaitForVisiBility("//li[@class='ng-binding ng-scope disp-blk']");
+			CommonUtilities.validateElementDisplayed(getValues());
+			List<QAFWebElement> Months = webDriver.findElements("//li[@class='ng-binding ng-scope disp-blk']");
+			System.out.println(Months);
+			for (int i = 0; i < Months.size(); i++) {
+				QAFWebElement Cele = Months.get(i);
+				String str = Cele.getText();
+				str.trim();
+				month.trim();
+				System.err.println(month);
+				if (str.equalsIgnoreCase(month)) {
+					CommonUtilities.click(Cele);
+					break;
+				}
+			}
+			CommonUtilities.JseClick(getBeneDay());
+			CommonUtilities.wait(2);
+			CommonUtilities.ExplicitWaitForVisiBility("//li[@class='ng-binding ng-scope disp-blk']");
+			CommonUtilities.validateElementDisplayed(getValues());
+			List<QAFWebElement> Days = webDriver.findElements("//li[@class='ng-binding ng-scope disp-blk']");
+
+			for (int i = 0; i < Days.size(); i++) {
+				QAFWebElement Cele = Days.get(i);
+				String str = Cele.getText();
+				System.err.println(day);
+				str.trim();
+				month.trim();
+				if (str.equalsIgnoreCase(day)) {
+					CommonUtilities.click(Cele);
+					break;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Log.info("DOB Selections-Done!");
+		Log.info("Bene Page Operations Completed");
+	}
+
+	public void errorMsgForWrongEntry(String fieldName, String InputValues, String ErrorStatus, String ErrorMessage) {
+		Log.info("Bene Page Operations Started");
+		try {
+			enterValuestoField(fieldName, InputValues);
+			if (Boolean.parseBoolean(ErrorStatus)) {
+				CommonUtilities.validateElementDisplayed(getErrorMsg());
+				CommonUtilities.wait(1);
+				String Act = CommonUtilities.getText(getErrorMsg());
+				CommonUtilities.wait(1);
+				CommonUtilities.AssertEquals(ErrorMessage, Act);
+			} else {
+				CommonUtilities.ValidatePresenceOfElement(getErrorMsgall());
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Log.info("Bene Page Operations Completed");
+
+	}
+
+	public List<QAFWebElement> getErrorMsgall() {
+		return ErrorMsgall;
+	}
+
+	@FindBy(locator = "Bene.YearValues.Page")
+	private QAFWebElement Values;
+
+	public QAFWebElement getValues() {
+		return Values;
+	}
+
+	public void SelectRightDOB() {
+		Log.info("Bene Page Operations Started");
+		Log.info("DOB Selections");
+		int Year1 = LocalDate.now().getYear();
+		String Year = "" + Year1 + "";
+		Year.trim();
+		String month = LocalDate.now().getMonth().toString();
+		int d = LocalDate.now().getDayOfMonth();
+		String unpadded = "" + d + "";
+		String day = "00".substring(unpadded.length()) + unpadded;
+		System.err.println(Year + month + day);
+		try {
+
+			CommonUtilities.JseClick(getBeneYear());
+			CommonUtilities.wait(2);
+			CommonUtilities.validateElementDisplayed(getValues());
+			CommonUtilities.ExplicitWaitForVisiBility("//li[@class='ng-binding ng-scope disp-blk']");
+			List<QAFWebElement> allvalues = webDriver.findElements("//li[@class='ng-binding ng-scope disp-blk']");
+			System.out.println(allvalues);
+			for (int i = 0; i < allvalues.size(); i++) {
+				QAFWebElement Cele = allvalues.get(i);
+				String str = Cele.getText();
+				str.trim();
+				System.err.println(str);
+				if (str.equals(Year)) {
+					CommonUtilities.click(Cele);
+					break;
+				}
+			}
+			CommonUtilities.JseClick(getBeneMonth());
+			CommonUtilities.wait(2);
+			CommonUtilities.ExplicitWaitForVisiBility("//li[@class='ng-binding ng-scope disp-blk']");
+			CommonUtilities.validateElementDisplayed(getValues());
+			List<QAFWebElement> Months = webDriver.findElements("//li[@class='ng-binding ng-scope disp-blk']");
+			System.out.println(Months);
+			for (int i = 0; i < Months.size(); i++) {
+				QAFWebElement Cele = Months.get(i);
+				String str = Cele.getText();
+				str.trim();
+				month.trim();
+				System.err.println(month);
+				if (str.equalsIgnoreCase(month)) {
+					CommonUtilities.click(Cele);
+					break;
+				}
+			}
+			CommonUtilities.JseClick(getBeneDay());
+			CommonUtilities.wait(2);
+			CommonUtilities.ExplicitWaitForVisiBility("//li[@class='ng-binding ng-scope disp-blk']");
+			CommonUtilities.validateElementDisplayed(getValues());
+			List<QAFWebElement> Days = webDriver.findElements("//li[@class='ng-binding ng-scope disp-blk']");
+
+			for (int i = 0; i < Days.size(); i++) {
+				QAFWebElement Cele = Days.get(i);
+				String str = Cele.getText();
+				System.err.println(day);
+				str.trim();
+				month.trim();
+				if (str.equalsIgnoreCase(day)) {
+					CommonUtilities.click(Cele);
+					break;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Log.info("DOB Selections-Done!");
+		Log.info("Bene Page Operations Completed");
+	}
+
+	public void ErrorMsgForMandatoryFields(String fieldName, String ErrorMessage) {
+		Log.info("Bene Page Operations Started");
+		try {
+			if (fieldName.contains("Date of birth")) {
+
+				CommonUtilities.validateElementDisplayed(
+						webDriver.findElement("//div[@class='date-field-holder']//following::span[7]"));
+			} else {
+				CommonUtilities
+						.validateElementDisplayed(webDriver.findElement("(.//span[@class='lfg-rwd-alert-txt'])[1]"));
+				String act = CommonUtilities.getText(webDriver.findElement("(.//span[@class='lfg-rwd-alert-txt'])[1]"));
+				CommonUtilities.AssertEquals(act, ErrorMessage);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Log.info("Bene Page Operations Completed");
+	}
+
+	public void GetValues_Negative(String fieldName, String InputValues) {
+		try {
+			enterValuestoField(fieldName, InputValues);
+			String Value = webDriver
+					.findElementByXPath(".//label[contains(text(),'" + fieldName + "')]/preceding::input[1]")
+					.getAttribute("value");
+			if (Value.isEmpty()) {
+				Log.info("+" + InputValues + " are not entered into +" + fieldName + "");
+			} else {
+				throw new Exception("" + InputValues + " are entered into +" + fieldName + "");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void GetValues_Positive(String fieldName, String InputValues) {
+		try {
+			enterValuestoField(fieldName, InputValues);
+			String Value = webDriver
+					.findElementByXPath(".//label[contains(text(),'" + fieldName + "')]/preceding::input[1]")
+					.getAttribute("value");
+			if (Value.equals(InputValues)) {
+				Log.info("+" + InputValues + " are entered into +" + fieldName + "");
+			} else {
+				Log.info("+" + InputValues + " are not entered into +" + fieldName + "");
+				throw new Exception("" + InputValues + " are not entered into " + fieldName + "");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void ClickManageBeneLink() {
+		Log.info("Bene Page Operations Started");
+		try {
+			CommonUtilities.click(getManaeBeneLink());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Log.info("Bene Page Operations Completed");
+	}
+
+	public void HeaderOne(String Exp) {
+		Log.info("Bene Page Operations Started");
+		try {
+			CommonUtilities.validateElementDisplayed(getHeaderOne());
+			String act = CommonUtilities.getText(getHeaderOne());
+			act.trim();
+			Exp.trim();
+			if (Exp.equals(act)) {
+				Log.info("Expected and Actual Text are same" + act);
+			} else {
+				throw new Exception("Expected and Actual Text are NOT same" + act);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Log.info("Bene Page Operations Completed");
+	}
+
+	public void HeaderTwo(String Exp) {
+		Log.info("Bene Page Operations Started");
+		try {
+			CommonUtilities.validateElementDisplayed(getHeaderTwo());
+			String act = CommonUtilities.getText(getHeaderTwo());
+			act.trim();
+			Exp.trim();
+			if (Exp.equals(act)) {
+				Log.info("Expected and Actual Text are same" + act);
+			} else {
+				throw new Exception("Expected and Actual Text are NOT same" + act);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Log.info("Bene Page Operations Completed");
+	}
+
+	public void HeaderThree(String Exp) {
+		Log.info("Bene Page Operations Started");
+		try {
+			CommonUtilities.validateElementDisplayed(getHeaderThree());
+
+			String act = CommonUtilities.getText(getHeaderThree());
+			act.trim();
+			Exp.trim();
+			if (Exp.equals(act)) {
+				Log.info("Expected and Actual Text are same" + act);
+			} else {
+				throw new Exception("Expected and Actual Text are NOT same" + act);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Log.info("Bene Page Operations Completed");
+	}
+
+	public void ToggleSwitchNotMarried() {
+		Log.info("Bene Page Operations Started");
+		try {
+			String s = webDriver.findElement("Bene.Notmarried").getCssValue("background-color");
+			String r = s;
+			r = r.replace("rgba", "");
+			r = r.replace("(", "");
+			r = r.replace(")", "");
+			String[] t = r.split(",");
+			System.out.println(t.length);
+			Color c = new Color(13, 93, 166);
+			String hex = String.format("#%02x%02x%02x", Integer.parseInt(t[0].trim()), Integer.parseInt(t[1].trim()),
+					Integer.parseInt(t[2].trim()), Integer.parseInt(t[3].trim()));
+			Assert.assertEquals(hex, "#0d5da6");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Log.info("Bene Page Operations Completed");
+
+	}
+
+	public void ChangeMaritalStatusTomarried() {
+		Log.info("Bene Page Operations Started");
+		try {
+			CommonUtilities.click(getMarried());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Log.info("Bene Page Operations Completed");
+	}
+
+	public void SpousualConsetTextVerification(String Exp) {
+		Log.info("Bene Page Operations Started");
+		try {
+			CommonUtilities.validateElementDisplayed(getSpousalConsent());
+			String act = CommonUtilities.getText(getSpousalConsent());
+			act.trim();
+			Exp.trim();
+			System.out.println(act);
+			if (Exp.equals(act)) {
+				Log.info("Expected and Actual Text are same" + act);
+			} else {
+				throw new Exception("Expected and Actual Text are NOT same" + act);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		Log.info("Bene Page Operations Completed");
+	}
+
+}
