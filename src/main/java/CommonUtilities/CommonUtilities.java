@@ -13,7 +13,8 @@ package CommonUtilities;
 	import java.awt.Robot;
 	import java.awt.event.KeyEvent;
 	import java.io.File;
-	import java.io.IOException;
+import java.io.FileInputStream;
+import java.io.IOException;
 	import java.net.HttpURLConnection;
 	import java.net.URL;
 	import java.util.Iterator;
@@ -24,7 +25,11 @@ package CommonUtilities;
 
 	import org.apache.commons.lang.StringUtils;
 	import org.apache.log4j.Logger;
-	import org.openqa.selenium.By;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
 	import org.openqa.selenium.Cookie;
 	import org.openqa.selenium.JavascriptExecutor;
 	import org.openqa.selenium.Keys;
@@ -42,7 +47,8 @@ import org.openqa.selenium.WebDriverException;
 	import org.openqa.selenium.support.ui.FluentWait;
 	import org.openqa.selenium.support.ui.Select;
 	import org.openqa.selenium.support.ui.Wait;
-	import org.testng.Assert;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 	import com.google.common.base.Function;
 	import com.qmetry.qaf.automation.ui.WebDriverTestBase;
@@ -52,7 +58,13 @@ import org.openqa.selenium.WebDriverException;
 	import com.qmetry.qaf.automation.ui.webdriver.QAFWebElement;
 	import com.qmetry.qaf.automation.util.FileUtil;
 
-	public class CommonUtilities  {
+	public class CommonUtilities implements IAutoConst  {
+		public static XSSFWorkbook wb;
+		public static XSSFSheet sheet;
+		public static XSSFRow row;
+		public static XSSFCell cell;
+		static String value;
+		static FileInputStream fis;
 		
 		
 		
@@ -1055,7 +1067,71 @@ import org.openqa.selenium.WebDriverException;
 		LOG.info("move again to parent window");
 
 	}
-
+	// to get value from excel sheet to application
+		public  String getcelldata(int rownum ,int column) throws IOException{
+			
+			fis = new FileInputStream(XLPATH);
+			
+			 wb= new XSSFWorkbook(fis);
+			 sheet = wb.getSheet(SheetTABname);
+			row = sheet.getRow(rownum);
+			 cell = row.getCell(column);
+			return value = cell.getStringCellValue();
+			
+		}
+		public void scrollToWebElement(WebElement element){
+			LOG.info("scroll to element by getting its x & y axis");
+			int x= element.getLocation().x;
+			int y = element.getLocation().y;
+			JavascriptExecutor js = (JavascriptExecutor)webDriver;
+			//substracting 150 pixel for adjustment
+			js.executeScript("scroll"+ x +","+(y-150) +")");
+			
+			
+		}
+		public void ExplicitwaitForVisiblity(String Xpath){
+			LOG.info("Explicitly wait for element");
+			WebDriverWait wait = new WebDriverWait(webDriver, 60);
+			wait.until(ExpectedConditions.visibilityOf(webDriver.findElementByXPath(Xpath)));
+			LOG.info("Got the element");
+			}
+		public void ExplicitwaitForINVisiblity(String Xpath){
+			LOG.info("Explicitly wait for element");
+			WebDriverWait wait = new WebDriverWait(webDriver, 60);
+			wait.until(ExpectedConditions.invisibilityOfAllElements(webDriver.findElementsByXPath(Xpath)));
+			LOG.info("element is invisible");
+		}
+		public void AssertEquals(String exp, String act){
+			LOG.info("Asserting text for element");
+			if(exp.equals(act)){
+				LOG.info("Assert text pass");
+				
+				
+			}else{
+				try {
+					throw new Exception("Assert Text Fail");
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		public void FocusOutOfTextBox(QAFWebElement ELE){
+			LOG.info("Moving the focus out"+ ELE);
+			ELE.sendKeys(Keys.TAB);
+		}
+       public String getRandomSpecialChar(int length){
+    	   LOG.info("Generating Random Special Char");
+    	   String alphabet = new String("!@#$%^&*()++==[]{}|?:");
+    	   int n= alphabet.length();
+    	   String result = new String();
+    	   Random r = new Random();
+    	   for(int i = 0;i< length;i++){
+    		   result=result+alphabet.charAt(r.nextInt(n));
+    		   }
+    	   LOG.info("Generating Random text"+ result);
+    	  return  result;
+			
+		}
 	}
 
 	
