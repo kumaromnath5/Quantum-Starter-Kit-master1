@@ -18,3 +18,21 @@ careerflipkart=xpath=//a[text()='Careers']
 
 #AmazonLocator
 careeramazon=xpath=//a[.='Careers']
+
+
+#Locator for facebook
+Shippingflip=xpath=//div[text()='HELP']
+
+contactu=xpath=//a[text()='Contact Us']
+
+paymenttt = xpath= //a[text()='Payments']
+
+
+
+#facenew
+
+facebooknewuser=xpath=.//*[@type='email']
+
+facebooknewpass=xpath=.//*[@name='pass']
+
+facebookloginbtn=xpath=(.//*[@type='submit'])[1]
