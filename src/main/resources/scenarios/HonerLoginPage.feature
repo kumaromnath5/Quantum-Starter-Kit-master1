@@ -33,7 +33,7 @@ Given I am on huaweiHonor home page of India
  
  Then I logout from Facebook page
  
-Examples 
+Examples: 
 |username  | password|
 |kom.jha26 |PAss     |
 |oman      |nath     |
