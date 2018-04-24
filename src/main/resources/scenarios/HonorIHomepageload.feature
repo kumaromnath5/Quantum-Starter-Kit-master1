@@ -13,3 +13,5 @@ And  I verify the tittle of page
 Then I click on Brand name on home page
 
 #Then I log out of application
+
+Examples: 
