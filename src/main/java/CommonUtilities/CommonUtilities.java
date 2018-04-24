@@ -1134,17 +1134,27 @@ import org.testng.Assert;
     	  return  result;
 			
 		}
+       public void selectfromDropdownList(QAFWebElement webElement, String Text) {
+    	   
+    	   LOG.info("SELECT FROM DROPDOWN BY TEXT");
+    	   Select Select = new Select(webElement);
+    	   Select.selectByVisibleText(Text);
+       }
        
-      public void popupacceptallert(){
+      public String popupAcceptAllert(){
     	  LOG.info("accept allert popup success");
-    	  Alert alert = webDriver.switchTo().alert();
-    	  alert.accept();
+    	   String alert = webDriver.switchTo().alert().getText();
+    	  webDriver.switchTo().alert().accept();
+    	  return alert;
     	}
-      public void popupdismissallert(){
-    	  LOG.info("dismiss allert popup success");
-    	  Alert alert = webDriver.switchTo().alert();
-    	  alert.dismiss();
-      }
+      
+      public String PopupDismissAllert(){
+    	  LOG.info("Dismiss allert popup success");
+    	   String alertdismiss = webDriver.switchTo().alert().getText();
+    	  webDriver.switchTo().alert().dismiss();
+    	  return alertdismiss;
+    	}
+      
 	}
 	
 	
