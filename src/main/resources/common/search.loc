@@ -36,3 +36,15 @@ facebooknewuser=xpath=.//*[@type='email']
 facebooknewpass=xpath=.//*[@name='pass']
 
 facebookloginbtn=xpath=(.//*[@type='submit'])[1]
+
+facebooklogout=xpath=//form[@id='u_t_5']
+
+
+
+#ClearTrip
+Cleartrip=xpath=//span[.='Your trips']
+Firstsign=Xpath=//input[@title='Sign In']
+CleartripUser=xpath=//input[@id='email']
+cleartripPass=xpath=//input[@id='password']
+cleartripSigin=xpath=//button[@id='signInButton']
+cleartripLogout=xpath=//a[@id='global_signout']
