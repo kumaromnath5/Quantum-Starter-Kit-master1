@@ -12,6 +12,7 @@ import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebDriver;
 import com.qmetry.qaf.automation.ui.webdriver.QAFWebElement;
 
 import CommonUtilities.CommonUtilities;
+import CommonUtilities.Excell;
 
 
 
@@ -24,7 +25,7 @@ public class facebookloginpage extends WebDriverBaseTestPage<WebDriverTestPage> 
 	CommonUtilities CommonUtilities = new CommonUtilities();
 	public QAFExtendedWebDriver webDriver = new WebDriverTestBase().getDriver();
 	
-	
+	Excell Excell = new Excell();
 	
 	
 	@FindBy(locator ="facebook.Usernamefield")
@@ -53,6 +54,11 @@ public class facebookloginpage extends WebDriverBaseTestPage<WebDriverTestPage> 
 			CommonUtilities.WaitForTheVisibilityOfElement(getUnTB(), 60);
 			CommonUtilities.typeTextToTextBox(getUnTB(), Uname);
 			CommonUtilities.JseHighlightTheElement(UnTB);
+			String un = Excell.getcelldata(2, 0);
+			System.err.println(un);
+
+			CommonUtilities.typeTextToTextBox(getUnTB(), un);
+			System.err.println(un);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -73,6 +79,7 @@ public class facebookloginpage extends WebDriverBaseTestPage<WebDriverTestPage> 
 		try {
 			CommonUtilities.JseHighlightTheElement(getLoginBTN());
 			CommonUtilities.JseClick(LoginBTN);
+			Excell.getcelldata(rownum, col)
 			
 		} catch (Exception e) {
 			e.printStackTrace();
