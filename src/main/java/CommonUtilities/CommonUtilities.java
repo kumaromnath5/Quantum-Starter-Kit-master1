@@ -29,6 +29,7 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 	import org.openqa.selenium.Cookie;
 	import org.openqa.selenium.JavascriptExecutor;
@@ -38,6 +39,7 @@ import org.openqa.selenium.By;
 	import org.openqa.selenium.Point;
 	import org.openqa.selenium.TakesScreenshot;
 	import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 	import org.openqa.selenium.WebElement;
     import org.openqa.selenium.interactions.Action;
@@ -1132,8 +1134,19 @@ import org.testng.Assert;
     	  return  result;
 			
 		}
+       
+      public void popupacceptallert(){
+    	  LOG.info("accept allert popup success");
+    	  Alert alert = webDriver.switchTo().alert();
+    	  alert.accept();
+    	}
+      public void popupdismissallert(){
+    	  LOG.info("dismiss allert popup success");
+    	  Alert alert = webDriver.switchTo().alert();
+    	  alert.dismiss();
+      }
 	}
-
+	
 	
 
 

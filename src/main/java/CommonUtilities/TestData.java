@@ -8,10 +8,12 @@ public class TestData {
 	
 	//Test Environment URL
 	
-	public static final String TEST_URL="https://www.hihonor.com/in/index.html";
+	public static final String TEST_URL="https://www.cleartrip.com/";
 	
 	
 	//Prod Environment URL
 	
 	public static final String PROD_URL="https://www.hihonor.com/in/index.html";
+	
+	
 }
