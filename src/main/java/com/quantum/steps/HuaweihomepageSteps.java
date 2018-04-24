@@ -23,8 +23,8 @@ public class HuaweihomepageSteps {
 	public void i_am_on_huaweiHonor_home_page_of_India() throws Throwable {
 	PrintStream ps = new PrintStream(new FileOutputStream("MyLog.txt"));
 	System.setOut(ps);
-	    webDriver.get(TestData.UAT_URL);
-	    //webDriver.manage().window().maximize();
+	    webDriver.get(TestData.TEST_URL);
+	    webDriver.manage().window().maximize();
 	}
 
 	@Given("^I verify the tittle of page$")
