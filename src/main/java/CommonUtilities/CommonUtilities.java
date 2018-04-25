@@ -1155,6 +1155,14 @@ import org.testng.Assert;
     	  return alertdismiss;
     	}
       
+      public void Clickonchromenotification() throws AWTException {
+			LOG.info("dismiss chrome notification "  );
+			Robot robot = new Robot();
+			robot.keyPress(KeyEvent.VK_ESCAPE);
+			robot.keyRelease(KeyEvent.VK_ESCAPE);
+		}
+
+      
 	}
 	
 	
