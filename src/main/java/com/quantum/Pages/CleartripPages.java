@@ -1,5 +1,7 @@
 package com.quantum.Pages;
 
+import java.awt.AWTException;
+
 import com.qmetry.qaf.automation.ui.WebDriverBaseTestPage;
 import com.qmetry.qaf.automation.ui.WebDriverTestBase;
 import com.qmetry.qaf.automation.ui.annotations.FindBy;
@@ -33,7 +35,15 @@ public class CleartripPages extends WebDriverBaseTestPage<WebDriverTestPage> {
 	@FindBy(locator="cleartripLogout")
 	private QAFWebElement ClearLogout;
 	
+	@FindBy(locator="Framename")
+	private QAFWebElement FRAM;
 	
+	
+	public QAFWebElement getFRAM() {
+		return FRAM;
+	}
+
+
 	public QAFWebElement getCleartripN() {
 		return CleartripN;
 	}
@@ -76,7 +86,8 @@ public class CleartripPages extends WebDriverBaseTestPage<WebDriverTestPage> {
 		return ClearLogout;
 	}
 	
-	public void Firstcleartrip() throws InterruptedException{
+	public void Firstcleartrip() throws InterruptedException, AWTException{
+		
 		commonUtilities.wait(2);
 		commonUtilities.JseClick(getCleartripN());
 		commonUtilities.wait(3);
@@ -84,20 +95,23 @@ public class CleartripPages extends WebDriverBaseTestPage<WebDriverTestPage> {
 		commonUtilities.wait(2);
 		
 		
+		
 	}
 	
-	public void usernamepassword(String arg1){
+	public void usernamepassword(String UN , String PW){
 		try {
-			commonUtilities.switchToFrameByID(frameName, expectedFrameID);
-			commonUtilities.wait(3);
+			commonUtilities.Clickonchromenotification();
+			commonUtilities.wait(2);
+			webDriver.switchTo().frame(getFRAM());
+		    commonUtilities.wait(3);
 			commonUtilities.JseHighlightTheElement(getClearusername());
-			commonUtilities.typeTextToTextBox(getClearusername(), arg1);
+			commonUtilities.typeTextToTextBox(getClearusername(), UN);
 			commonUtilities.wait(2);
 			commonUtilities.JseHighlightTheElement(getClearpass());
-			commonUtilities.typeTextToTextBox(getClearpass(), arg1);
+			commonUtilities.typeTextToTextBox(getClearpass(), PW);
 			commonUtilities.wait(3);
 			
-			
+		
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -109,6 +123,7 @@ public class CleartripPages extends WebDriverBaseTestPage<WebDriverTestPage> {
 		try {
 			commonUtilities.JseClick(getClearsigin());
 			commonUtilities.wait(3);
+		    commonUtilities.switchToDefaultContent();
 			
 			
 			
