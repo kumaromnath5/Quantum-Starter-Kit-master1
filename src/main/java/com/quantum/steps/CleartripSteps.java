@@ -18,9 +18,7 @@ public class CleartripSteps {
 	@Given("^i am on cleartrip home page$")
 	public void i_am_on_cleartrip_home_page() throws Throwable {
 		webDriver.get("https://www.cleartrip.com/");
-		Alert alert = webDriver.switchTo().alert();
-		alert.accept();
-	
+		
 		
 		    
 	}
@@ -28,7 +26,7 @@ public class CleartripSteps {
 	@Given("^i enter \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void i_enter_and(String arg1, String arg2) throws Throwable {
 		CleartripPages.Firstcleartrip();
-		CleartripPages.usernamepassword(arg1);
+		CleartripPages.usernamepassword(arg1, arg2);
 	    	}
 
 	@Then("^i login successfully$")
