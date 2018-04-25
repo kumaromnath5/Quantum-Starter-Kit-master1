@@ -951,7 +951,7 @@ import org.testng.Assert;
 			LOG.info("Highlightging the Element " + header);
 			JavascriptExecutor js = (JavascriptExecutor) webDriver;
 			for (int iCnt = 0; iCnt < 2; iCnt++) {
-				js.executeScript("arguments[0].style.border='5px dotted red';", header);
+				js.executeScript("arguments[0].style.border='5px dotted green';", header);
 
 			}
 
