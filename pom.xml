@@ -63,7 +63,8 @@
                     </systemPropertyVariables>
 
                     <suiteXmlFiles>
-                        <suiteXmlFile>${testngXmlDir}/${testngXmlFile}</suiteXmlFile>
+                        <suiteXmlFile>/quantum-starter/src/main/resources/config/testng_appium.xml</suiteXmlFile>
+                        <suiteXmlFile>/quantum-starter/src/main/resources/config/testng_web.xml</suiteXmlFile>
                     </suiteXmlFiles>
 
                 </configuration>
@@ -131,10 +132,6 @@
             <artifactId>qaf-support</artifactId>
             <version>${qafsupport.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.quantum</groupId>
-            <artifactId>quantum-support</artifactId>
-            <version>${quantum.version}</version>
-        </dependency>
+        
     </dependencies>
 </project>
